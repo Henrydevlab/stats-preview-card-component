@@ -1,0 +1,238 @@
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+
+:root {
+  /* Color Palette variables */
+  --clr-bg-main: hsl(233, 47%, 7%);
+  --clr-bg-card: hsl(244, 37%, 16%);
+  --clr-accent: hsl(277, 64%, 61%);
+  --clr-text-heading: hsl(0, 0%, 100%);
+  --clr-text-body: hsla(0, 0%, 100%, 0.75);
+  --clr-text-stat-label: hsla(0, 0%, 100%, 0.6);
+
+  /* Typography configuration */
+  --ff-primary: 'Inter', sans-serif;
+  --ff-secondary: 'Lexend Deca', sans-serif;
+  --fs-body: 0.9375rem;
+}
+
+/* Custom CSS box sizing reset rules */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Eliminate default margins and paddings across elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Define viewport layout rules and primary styling */
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  background-color: var(--clr-bg-main);
+  color: var(--clr-text-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+/* Ensure images retain natural responsive boundary constraints */
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINERS
+   ========================================================================== */
+
+/* Main wrapping layout target container */
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   CARD COMPONENT (BEM Architecture with CSS Grid)
+   ========================================================================== */
+
+/* Component baseline element layout styles using mobile-first Grid */
+.stats-card {
+  background-color: var(--clr-bg-card);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 1.25rem 1.25rem rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 69.375rem; /* Caps card size to exactly 1110px width */
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Blend configuration parent node container */
+.stats-card__image-wrapper {
+  background-color: var(--clr-accent);
+  position: relative;
+}
+
+/* Blend the color overlay directly into target graphic */
+.stats-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  opacity: 0.75;
+}
+
+/* Structural block padding wrapper for details text block */
+.stats-card__content {
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+
+/* Component heading level layout spacer rules */
+.stats-card__header {
+  margin-bottom: 2.5rem;
+}
+
+/* Component baseline primary text heading formatting */
+.stats-card__title {
+  color: var(--clr-text-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* Target highlight color class variation rules */
+.stats-card__title--highlight {
+  color: var(--clr-accent);
+}
+
+/* Layout component copy body block typography specifications */
+.stats-card__description {
+  font-size: 0.9375rem;
+  line-height: 1.667;
+}
+
+/* Metric row details container block specifications */
+.stats-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Key value container description data items spacing */
+.stats-card__stat-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Numerical performance metric output font weight specs */
+.stats-card__stat-value {
+  color: var(--clr-text-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Secondary font family configurations applied to small tags */
+.stats-card__stat-label {
+  color: var(--clr-text-stat-label);
+  font-family: var(--ff-secondary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (Desktop Layout - 64rem / 1024px and up)
+   ========================================================================== */
+
+@media (min-width: 64rem) {
+  /* Set layout body space limits */
+  body {
+    padding: 2rem;
+  }
+
+  /* Split the card layout into two exactly equal columns */
+  .stats-card {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    height: 27.875rem;
+  }
+
+  /* Place the image track explicitly in the second column */
+  .stats-card__image-wrapper {
+    grid-column: 2;
+  }
+
+  /* Place text track in the first column on the matching row axis */
+  .stats-card__content {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 4.5rem 6.25rem 3.75rem 4.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Reset inner item header spacing models */
+  .stats-card__header {
+    margin-bottom: 0;
+  }
+
+  /* Update title typographic sizes for desktop setups */
+  .stats-card__title {
+    font-size: 2.25rem;
+    line-height: 1.22;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Constrain block length text parameters safely */
+  .stats-card__description {
+    padding-right: 2.5rem;
+  }
+
+  /* Switch structural direction alignments for metric columns */
+  .stats-card__list {
+    flex-direction: row;
+    gap: 4rem;
+  }
+}
+
+/* ==========================================================================
+   ATTRIBUTION FOOTER
+   ========================================================================== */
+
+/* Universal structural footer layout attributes */
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  color: var(--clr-text-stat-label);
+  padding: 1rem 0;
+  width: 100%;
+}
+
+/* Link element decoration controls */
+.attribution a {
+  color: var(--clr-accent);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Interactions settings on user pointer targeting actions */
+.attribution a:hover,
+.attribution a:focus {
+  text-decoration: underline;
+  opacity: 0.8;
+}
