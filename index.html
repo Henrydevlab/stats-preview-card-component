@@ -2,32 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Frontend Mentor | Stats Preview Card Component</title>
+  <meta name="description" content="Discover the benefits of data analytics and make better decisions regarding revenue, customer experience, and overall efficiency.">
+  <meta name="author" content="Henrydevlab">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Frontend Mentor | Stats Preview Card Component">
+  <meta property="og:description" content="Discover the benefits of data analytics and make better decisions regarding revenue, customer experience, and overall efficiency.">
+  <meta property="og:image" content="./images/desktop-design.jpg">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Frontend Mentor | Stats Preview Card Component">
+  <meta property="twitter:description" content="Discover the benefits of data analytics and make better decisions regarding revenue, customer experience, and overall efficiency.">
+  <meta property="twitter:image" content="./images/desktop-design.jpg">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Stats preview card component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  Get insights that help your business grow.
+  <main class="container">
+    <article class="stats-card">
+      
+      <div class="stats-card__image-wrapper">
+        <picture>
+          <source media="(min-width: 64rem)" srcset="./images/image-header-desktop.jpg">
+          <img class="stats-card__image" src="./images/image-header-mobile.jpg" alt="Business women analyzing data in a modern office setup">
+        </picture>
+      </div>
 
-  Discover the benefits of data analytics and make better decisions regarding revenue, customer 
-  experience, and overall efficiency.
+      <div class="stats-card__content">
+        <header class="stats-card__header">
+          <h1 class="stats-card__title">
+            Get <span class="stats-card__title--highlight">insights</span> that help your business grow.
+          </h1>
+          <p class="stats-card__description">
+            Discover the benefits of data analytics and make better decisions regarding revenue, customer 
+            experience, and overall efficiency.
+          </p>
+        </header>
 
-  10k+ companies
-  314 templates
-  12m+ queries
+        <dl class="stats-card__list">
+          <div class="stats-card__stat-group">
+            <dt class="stats-card__stat-value">10k+</dt>
+            <dd class="stats-card__stat-label">companies</dd>
+          </div>
+          <div class="stats-card__stat-group">
+            <dt class="stats-card__stat-value">314</dt>
+            <dd class="stats-card__stat-label">templates</dd>
+          </div>
+          <div class="stats-card__stat-group">
+            <dt class="stats-card__stat-value">12m+</dt>
+            <dd class="stats-card__stat-label">queries</dd>
+          </div>
+        </dl>
+      </div>
+
+    </article>
+  </main>
 
   <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/Henrydevlab">Henry</a>.
   </footer>
+
 </body>
 </html>
